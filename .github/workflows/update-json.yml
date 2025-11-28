@@ -14,18 +14,32 @@ concurrency:
 jobs:
   update-json:
     runs-on: ubuntu-latest
-    
+    # Only run on production releases (not pre-release and marked as latest)
+    if: ${{ !github.event.release.prerelease && github.event.release.target_commitish == 'main' }}
+
     steps:
     - name: Checkout repository
       uses: actions/checkout@v4
       with:
         ref: main
 
+    - name: Verify latest release
+      env:
+        GH_TOKEN: ${{ github.token }}
+      run: |
+        LATEST_TAG=$(gh release view --repo ${{ github.repository }} --json tagName -q '.tagName')
+        CURRENT_TAG=${{ github.event.release.tag_name }}
+        if [ "$LATEST_TAG" != "$CURRENT_TAG" ]; then
+          echo "Skipping: $CURRENT_TAG is not the latest release ($LATEST_TAG)"
+          exit 1
+        fi
+        echo "Confirmed: $CURRENT_TAG is the latest release"
+
     - name: Set up Node.js
       uses: actions/setup-node@v3
       with:
         node-version: '18'
-        
+
     - name: Update JSON file
       run: |
         set -e  # Exit on any error
@@ -42,7 +56,7 @@ jobs:
         VERSION_NO_V=${VERSION#v}
         ZIP_URL="https://github.com/${{ github.repository }}/releases/latest/download/mipad-custom-boot-${VERSION_NO_V}.zip"
         CHANGELOG_URL="https://raw.githubusercontent.com/${{ github.repository }}/main/README.md"
-        
+
         jq -n \
           --arg version "$VERSION" \
           --argjson versionCode "$VERSION_CODE" \
@@ -54,9 +68,9 @@ jobs:
             zipUrl: $zipUrl,
             changelog: $changelog
           }' > temp.json || { echo "Error: jq failed"; exit 1; }
-          
+
         mv temp.json update.json
-        
+
     - name: Commit and push changes
       run: |
         set -e
