@@ -4,16 +4,16 @@
 ## 介绍
 专为平板设备打造的修改开机动画模块。平板与其他设备略有不同，其动画会根据设备的方向而更改。
 > [!NOTE] 
-目前仅在小米 Pad 6 Pro (liuqin) V14.0.9.0.TMYCNXM 上进行了测试。其他平板型号、品牌和系统的平板电脑基本都能兼容，但兼容性仍需进一步测试。
+目前仅在小米 Pad 6 Pro (liuqin) V14.0.9.0.TMYCNXM 及 OS2.0.203.0.VMYCNXM 上进行了测试。其他平板型号、品牌和系统的平板电脑基本都能兼容，但兼容性仍需进一步测试。
 
 ## 要求
 - Magisk v26.1+ / KernelSU v0.8.0+ / APatch 10568+
-- 安卓 11+ (API 30+)
+- Android 11+ (API 30+)
 > [!WARNING]
 > 此模块专为 Magisk 设计。不会为 KernelSU 和 APatch 提供支持，有可能会出现错误。
 
 ## 主题
-- 原始浅色主题版本
+- （之後更新）
 
 ## 安装
 1. 下载[最新](https://github.com/G0246/mipad-custom-boot/releases/latest)版本
