@@ -63,7 +63,7 @@
 3. 点击 **"Run workflow"**
 4. 将 **Source** 设置为 `template`
 5. 选择您的**设备型号**（例如 `liuqin`）
-6. 选择**系统类型**（例如 `HyperOS`）
+6. 选择**模板**（例如 `HyperOS`）
 7. 选择**目标位置**
 8. 从 **Artifacts** 下载构建好的模块
 
@@ -85,10 +85,9 @@
 
 | 位置 | 描述 |
 |------|------|
-| `system/product/media` | 默认位置（大多数设备） |
-| `system/media` | 传统位置 |
-| `system/system_ext/media` | 系统扩展媒体 |
-| `system/product/media/theme/default` | 主题默认位置 |
+| `/product/media` | 默认位置（大多数设备） |
+| `/system/media` | 传统位置 |
+| `/system_ext/media` | 系统扩展媒体 |
 
 ### 文件命名规范
 
