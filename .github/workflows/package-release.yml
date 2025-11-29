@@ -84,23 +84,25 @@ jobs:
         id: create_release
         env:
           GH_TOKEN: ${{ github.token }}
+          RELEASE_BODY: ${{ github.event.inputs.body }}
         run: |
           VERSION="${{ github.event.inputs.version }}"
           TAG="v$VERSION"
           TITLE="${{ github.event.inputs.title }}"
-          BODY="${{ github.event.inputs.body }}"
           RELEASE_TYPE="${{ github.event.inputs.release_type }}"
           ZIP_NAME="${{ steps.create_zip.outputs.zip_name }}"
 
           # Get the previous release tag for changelog link
           PREV_TAG=$(gh release list --repo ${{ github.repository }} --exclude-drafts --limit 1 --json tagName -q '.[0].tagName' 2>/dev/null || echo "")
 
-          # Build full release notes with changelog link
+          # Build full release notes with changelog link using a temp file
+          echo "$RELEASE_BODY" > release_notes.md
+
           if [ -n "$PREV_TAG" ]; then
             CHANGELOG_URL="https://github.com/${{ github.repository }}/compare/${PREV_TAG}...${TAG}"
-            FULL_BODY=$(printf "%s\n\n---\n**Full Changelog**: %s" "$BODY" "$CHANGELOG_URL")
-          else
-            FULL_BODY="$BODY"
+            echo "" >> release_notes.md
+            echo "---" >> release_notes.md
+            echo "**Full Changelog**: ${CHANGELOG_URL}" >> release_notes.md
           fi
 
           # Build release flags
@@ -122,7 +124,7 @@ jobs:
           # Create the release with the ZIP attached
           gh release create "$TAG" "$ZIP_NAME" \
             --title "$TITLE" \
-            --notes "$FULL_BODY" \
+            --notes-file release_notes.md \
             $FLAGS
 
           echo "Release created successfully!"
