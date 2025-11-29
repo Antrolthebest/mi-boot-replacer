@@ -61,9 +61,11 @@ You can use GitHub Actions to build a custom boot animation module without any l
 1. **Fork** this repository
 2. Go to **Actions** → **"Build Custom Boot Animation Module"**
 3. Click **"Run workflow"**
-4. Select a **template** from the dropdown (e.g., `template: liuqin/HyperOS`)
-5. Select the **Target location**
-6. Download the built module from **Artifacts**
+4. Set **Source** to `template`
+5. Select your **Device model** (e.g., `liuqin`)
+6. Select the **System type** (e.g., `HyperOS`)
+7. Select the **Target location**
+8. Download the built module from **Artifacts**
 
 ### Method 2: Upload Custom Files
 
@@ -78,14 +80,6 @@ You can use GitHub Actions to build a custom boot animation module without any l
 
 > [!WARNING]
 > The `upload/` folder is for personal use in your fork only. Do not submit pull requests with changes to this folder - they will be automatically closed.
-
-### Available Templates
-
-| Template | Description |
-|----------|-------------|
-| `liuqin/HyperOS` | HyperOS style for Xiaomi Pad 6 Pro |
-| `liuqin/MIUI` | MIUI style for Xiaomi Pad 6 Pro |
-| `liuqin/MIUI_inverted` | MIUI inverted style for Xiaomi Pad 6 Pro |
 
 ### Available Target Locations
 

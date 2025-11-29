@@ -61,9 +61,11 @@
 1. **Fork** 此仓库
 2. 前往 **Actions** → **"Build Custom Boot Animation Module"**
 3. 点击 **"Run workflow"**
-4. 从下拉菜单选择一个**模板**（例如 `template: liuqin/HyperOS`）
-5. 选择**目标位置**
-6. 从 **Artifacts** 下载构建好的模块
+4. 将 **Source** 设置为 `template`
+5. 选择您的**设备型号**（例如 `liuqin`）
+6. 选择**系统类型**（例如 `HyperOS`）
+7. 选择**目标位置**
+8. 从 **Artifacts** 下载构建好的模块
 
 ### 方法二：上传自定义文件
 
@@ -78,14 +80,6 @@
 
 > [!WARNING]
 > `upload/` 文件夹仅供在您自己的 Fork 中个人使用。请勿提交包含此文件夹更改的 Pull Request，否则将被自动关闭。
-
-### 可用模板
-
-| 模板 | 描述 |
-|------|------|
-| `liuqin/HyperOS` | 小米平板 6 Pro 的 HyperOS 风格 |
-| `liuqin/MIUI` | 小米平板 6 Pro 的 MIUI 风格 |
-| `liuqin/MIUI_inverted` | 小米平板 6 Pro 的 MIUI 反色风格 |
 
 ### 可用目标位置
 
