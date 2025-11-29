@@ -63,7 +63,7 @@ You can use GitHub Actions to build a custom boot animation module without any l
 3. Click **"Run workflow"**
 4. Set **Source** to `template`
 5. Select your **Device model** (e.g., `liuqin`)
-6. Select the **System type** (e.g., `HyperOS`)
+6. Select the **Template** (e.g., `HyperOS`)
 7. Select the **Target location**
 8. Download the built module from **Artifacts**
 
