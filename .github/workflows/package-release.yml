@@ -1,4 +1,4 @@
-name: "[Dev] Create Release"
+name: "Create Release"
 
 # This workflow is for maintainers/developers only
 # It packages the module and creates a GitHub release
