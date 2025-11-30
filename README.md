@@ -9,6 +9,7 @@ This module utilizes systemless mount to mount the bootanimation files to the sp
 ## Requirements
 - Magisk v26.1+ / KernelSU v0.8.0+ / APatch 10568+
 - Android 11+ (API 30+) running MIUI/HyperOS
+
 > [!WARNING]
 > This module is designed for Magisk. KernelSU and APatch are not fully supported and unexpected bugs may occur.
 

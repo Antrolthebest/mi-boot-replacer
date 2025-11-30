@@ -6,6 +6,13 @@
 
 此模块使用 systemless 挂载方式将开机动画文件挂载到指定位置，确保不会对系统分区进行任何修改。
 
+## 要求
+- Magisk v26.1+ / KernelSU v0.8.0+ / APatch 10568+
+- Android 11+ (API 30+) 运行 MIUI/HyperOS
+
+> [!WARNING]
+> 此模块专为 Magisk 设计。KernelSU 和 APatch 未获得完全支持，可能会出现意外错误。
+
 ## 已测试设备
 
 | 设备 | 系统版本 | 状态 |
