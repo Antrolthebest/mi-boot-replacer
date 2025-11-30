@@ -10,8 +10,6 @@ BACKUP_DIR="/data/adb/boot-backups"
 MODULE_ID=$(grep_prop id "$MODPATH/module.prop")
 MODULE_NAME=$(grep_prop name "$MODPATH/module.prop")
 MODULE_VER_CODE=$(($(grep_prop versionCode "$MODPATH/module.prop") + 0))
-
-# Check for existing module installation and preserve user's theme
 OLD_MODULE_DIR="/data/adb/modules/$MODULE_ID"
 
 # Recovery not recommended
@@ -22,6 +20,7 @@ if [[ "$BOOTMODE" != true ]]; then
   abort "*********************************************"
 fi
 
+# User prompt
 key_check() {
   local timeout=60
   local start_time=$(date +%s)
@@ -130,6 +129,7 @@ select_boot_dir() {
   done
 }
 
+# Backup
 backup() {
   ui_print "- Backing up boot animations from $BOOT_DIR"
   if [ -d "$BOOT_DIR" ]; then
@@ -221,6 +221,7 @@ if [[ "$DEVICE_BRAND" != "xiaomi" && "$DEVICE_BRAND" != "redmi" && "$DEVICE_BRAN
   fi
 fi
 
+# Check for existing module installation and preserve user's theme
 if [ -d "$OLD_MODULE_DIR/system" ]; then
   ui_print "- Existing module installation detected"
   ui_print "- Do you want to keep your current theme?"
