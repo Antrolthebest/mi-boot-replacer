@@ -1,5 +1,4 @@
-## v1.1.6
+## v1.1.7
 
-- Improved installation UI and error handling
-- Enhanced user guidance with troubleshooting tips
-- General bug fixes and improvements
+- Enhance module installation and safety checks
+- Better user prompts
